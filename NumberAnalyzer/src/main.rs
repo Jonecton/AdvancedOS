@@ -15,7 +15,14 @@ fn fizz_buzz(num: i32) {
         println!("Fizz");
     }
 
-    else {  }
+    else {
+        if is_even(num) {
+            println!("{} is even", num);
+        }
+        else {
+            println!("{} is odd", num);
+        }
+    }
 }
 
 
@@ -23,10 +30,15 @@ fn main() {
     //Initialize array
     let mut nums_arr: [i8; 10] = [0; 10];
     for i in 1..10{
-        let mut x = rand ::thread_rng();
+        let mut x = thread_rng();
         nums_arr[i] = x.gen_range(0..99);
     }
     println!("nums_arr = {:?}", nums_arr);
+
+    //FizzBuzz the array
+    for i in 0..nums_arr.len(){
+        fizz_buzz(nums_arr[i] as i32);
+    }
 
     //Sum values in array
     let mut sum:i32 = 0;
